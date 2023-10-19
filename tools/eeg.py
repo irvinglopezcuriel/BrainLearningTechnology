@@ -5,7 +5,6 @@ from neurosdk.cmn_types import *
 
 from tools.logging import logger   
 
-
 #doing all this a the "module level" in "Demo" server mode it will work fine :)
 
 def on_sensor_state_changed(sensor, state):
@@ -36,7 +35,5 @@ gl_scanner.sensorsChanged = sensorFound
 logger.debug("Start scan")
 gl_scanner.start()
 
-
 def get_head_band_sensor_object():
     return gl_sensor
-

@@ -1,5 +1,4 @@
-from flask import request, g                                                                 
-from tools.logging import logger   
+from flask import g                                                                 
 from neurosdk.cmn_types import * 
 
 def handle_request():
@@ -8,4 +7,3 @@ def handle_request():
 
     g.hb.exec_command(SensorCommand.CommandStartSignal)
     return ["Data Flowing"]
-
