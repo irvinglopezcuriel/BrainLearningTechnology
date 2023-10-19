@@ -5,6 +5,10 @@ from tools.eeg import get_head_band_sensor_object
 from db_con import get_db
 from tools.token_required import token_required
 from tools.logging import logger
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 ERROR_MSG = "Ooops.. Didn't work!"
 
@@ -70,4 +74,4 @@ def exec_proc(proc_name):
     return resp
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=os.getenv('FRONTEND_PORT'))
