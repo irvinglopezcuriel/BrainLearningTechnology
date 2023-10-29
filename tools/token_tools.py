@@ -1,9 +1,5 @@
 import jwt
-import datetime
-from flask import g
+import os
 
-def create_token(token_data):
-    token_data['exp'] = datetime.datetime.utcnow() + datetime.timedelta(days=0, minutes=30)
-    token_data['iat'] = datetime.datetime.utcnow()
-
-    return jwt.encode( token_data , g.secrets['JWT'],  algorithm="HS256")
+def create_token(user):
+    return jwt.encode( payload={"id": str(user[0])}, key=os.getenv('SECRET'), algorithm="HS256")
