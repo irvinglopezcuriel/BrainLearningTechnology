@@ -1,18 +1,20 @@
-from flask import request
+from flask import request, g
 from flask_json import json_response
 from tools.token_tools import create_token
+from tools.database.tables.users.get_user import get_user
+from werkzeug.exceptions import *
 
 from tools.logging import logger
 
 def handle_request():
     logger.debug("Login Handle Request")
-    #use data here to auth the user
 
-    password_from_user_form = request.form['password']
-    user = {
-            "sub" : request.form['firstname'] #sub is used by pyJwt as the owner of the token
-            }
-    if not user:
-        return json_response(status_ = 401, message = 'Invalid credentials', authenticated = False )
+    email = request.form.get('email')
+    password = request.form.get('password')
+    
+    if not email or not password:
+        raise BadRequest("Invalid form data")
+    
+    user, role = get_user(g.cursor, email, password)
 
-    return json_response( token = create_token(user) , authenticated = True)
+    return json_response(status_=200, token = create_token(user), role = role[1])
