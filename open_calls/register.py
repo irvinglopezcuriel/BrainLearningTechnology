@@ -21,4 +21,5 @@ def handle_request():
 
     add_user(g.cursor, firstname, lastname, email, password, role[0])
     g.db.commit()
+    
     return json_response(status_=200)
