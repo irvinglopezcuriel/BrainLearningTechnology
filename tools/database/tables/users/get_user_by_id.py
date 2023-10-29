@@ -1,3 +1,5 @@
+from werkzeug.exceptions import *
+
 def get_user_by_id(cur, id):
     commandCheckUser = """
         SELECT *
@@ -7,6 +9,6 @@ def get_user_by_id(cur, id):
     cur.execute(commandCheckUser)
     result = cur.fetchone()
     if not result:
-        raise TypeError("User does not exist")
+        raise BadRequest("User does not exist")
     else:
         return result

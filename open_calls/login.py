@@ -7,12 +7,9 @@ from tools.logging import logger
 
 def handle_request():
     logger.debug("Login Handle Request")
-    
-    try:
-        email = request.form.get('email')
-        password = request.form.get('password')
-        user, role = get_user(g.cursor, email, password)
-        
-        return json_response( token = create_token(user), role = role[1])
-    except Exception as err:
-        return json_response(status_=400, data=err)
+
+    email = request.form.get('email')
+    password = request.form.get('password')
+    user, role = get_user(g.cursor, email, password)
+
+    return json_response(token = create_token(user), role = role[1])

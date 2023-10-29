@@ -5,3 +5,4 @@ pyyaml
 pyneurosdk2
 python-dotenv
 psycopg2
+werkzeug

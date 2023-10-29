@@ -1,6 +1,6 @@
 import bcrypt
 import re
-from tools.logging import logger
+from werkzeug.exceptions import BadRequest
 
 email_regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
 
@@ -14,11 +14,11 @@ def get_user(cur, email, password):
         cur.execute(commandCheckUser)
         result = cur.fetchone()
         if not result:
-            raise TypeError("User does not exist")
+            raise BadRequest("User or password invalid")
         else:
             checkPassword = bcrypt.checkpw(password.encode('utf-8'), result[4].encode('utf-8'))
             if not checkPassword:
-                raise TypeError("Invalid password")
+                raise BadRequest("User or password invalid")
             else:
                 commandGetRole = """
                     SELECT *
@@ -29,4 +29,4 @@ def get_user(cur, email, password):
                 resultRole = cur.fetchone()
                 return result, resultRole
     else:
-        raise TypeError("Email invalid")
+        raise BadRequest("Invalid email format")

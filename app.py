@@ -8,6 +8,7 @@ from tools.token_required import token_required
 from tools.logging import logger
 from dotenv import load_dotenv
 from distutils.util import strtobool
+from werkzeug.exceptions import *
 
 import os
 
@@ -19,6 +20,9 @@ ERROR_MSG = "Ooops.. Didn't work!"
 app = Flask(__name__)
 #add in flask json
 FlaskJSON(app)
+#Import error handlers
+import tools.error_handlers
+app.register_blueprint(tools.error_handlers.blueprint)
 
 #g is flask for a global var storage 
 def init_new_env():
@@ -45,15 +49,8 @@ def exec_secure_proc(proc_name):
 
     #see if we can execute it..
     resp = ""
-    try:
-        fn = getattr(__import__('secure_calls.'+proc_name), proc_name)
-        resp = fn.handle_request()
-    except Exception as err:
-        ex_data = str(Exception) + '\n'
-        ex_data = ex_data + str(err) + '\n'
-        ex_data = ex_data + traceback.format_exc()
-        logger.error(ex_data)
-        return json_response(status_=500 ,data=ERROR_MSG)
+    fn = getattr(__import__('secure_calls.'+proc_name), proc_name)
+    resp = fn.handle_request()
     g.db.close()
     return resp
 
@@ -66,15 +63,8 @@ def exec_proc(proc_name):
 
     #see if we can execute it..
     resp = ""
-    try:
-        fn = getattr(__import__('open_calls.'+proc_name), proc_name)
-        resp = fn.handle_request()
-    except Exception as err:
-        ex_data = str(Exception) + '\n'
-        ex_data = ex_data + str(err) + '\n'
-        ex_data = ex_data + traceback.format_exc()
-        logger.error(ex_data)
-        return json_response(status_=500 ,data=ERROR_MSG)
+    fn = getattr(__import__('open_calls.'+proc_name), proc_name)
+    resp = fn.handle_request()
     g.db.close()
     return resp
 
