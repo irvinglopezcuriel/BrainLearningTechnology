@@ -41,8 +41,11 @@ def delete(id):
 	task_to_delete = Todo.query.get_or_404(id)
 
 	try:
+		print('going to delete')
 		db.session.delete(task_to_delete)
-		db.commit()
+		print('going to commit')
+		db.session.commit()
+		print('going to redirect')
 		return redirect('/')
 	except:
 		return 'Couldn\'t delete task'
