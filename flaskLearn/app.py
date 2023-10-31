@@ -19,6 +19,7 @@ class Todo(db.Model):
 # on the "homepage", do:
 @app.route('/', methods=['POST', 'GET'])
 def index():
+	# adding a task
 	if request.method == 'POST':
 		task_content = request.form['content']
 		new_task = Todo(content=task_content)
@@ -29,9 +30,22 @@ def index():
 			return redirect('/')
 		except:
 			return 'There was an issue adding task'
+	# display tasks
 	else:
 		tasks = Todo.query.order_by(Todo.date_created).all()
 		return render_template("index.html", tasks = tasks)
+
+# delete functionality
+@app.route('/delete/<int:id>')
+def delete(id):
+	task_to_delete = Todo.query.get_or_404(id)
+
+	try:
+		db.session.delete(task_to_delete)
+		db.commit()
+		return redirect('/')
+	except:
+		return 'Couldn\'t delete task'
 
 if __name__ == "__main__":
 	app.run(debug = True)
