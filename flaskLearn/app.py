@@ -39,16 +39,26 @@ def index():
 @app.route('/delete/<int:id>')
 def delete(id):
 	task_to_delete = Todo.query.get_or_404(id)
-
 	try:
-		print('going to delete')
 		db.session.delete(task_to_delete)
-		print('going to commit')
 		db.session.commit()
-		print('going to redirect')
 		return redirect('/')
 	except:
 		return 'Couldn\'t delete task'
+
+# update functionality
+@app.route('/update/<int:id>', methods = ['GET', 'POST'])
+def update(id):
+	task_to_update = Todo.query.get_or_404(id)
+	if request.method == 'POST':
+		task_to_update.content = request.form['content']
+		try:
+			db.session.commit()
+			return redirect('/')
+		except:
+			return 'Couldn\'t update task'
+	else:
+		return render_template('update.html', task=task_to_update)
 
 if __name__ == "__main__":
 	app.run(debug = True)
