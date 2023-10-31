@@ -39,7 +39,7 @@ def init_new_env():
 def index():
     return redirect('/static/index.html')
 
-@app.route("/secure_api/<proc_name>",methods=['GET', 'POST'])
+@app.route("/secure_api/<proc_name>", methods=['GET', 'POST', 'DELETE'])
 @token_required
 def exec_secure_proc(proc_name):
     logger.debug(f"Secure Call to {proc_name}")
@@ -54,7 +54,7 @@ def exec_secure_proc(proc_name):
     g.db.close()
     return resp
 
-@app.route("/open_api/<proc_name>",methods=['GET', 'POST'])
+@app.route("/open_api/<proc_name>", methods=['GET', 'POST'])
 def exec_proc(proc_name):
     logger.debug(f"Call to {proc_name}")
 
