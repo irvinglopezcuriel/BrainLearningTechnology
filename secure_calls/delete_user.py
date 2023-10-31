@@ -19,5 +19,6 @@ def handle_request():
         userId = g.user[0]
 
     delete_user(g.cursor, userId)
+    g.db.commit()
 
     return json_response(status_=200)

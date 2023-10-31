@@ -1,6 +1,9 @@
 from werkzeug.exceptions import BadRequest
+from tools.is_valid_uuid import is_valid_uuid
 
 def get_role_by_id(cur, id):
+    if not is_valid_uuid(id):
+        raise BadRequest("Invalid Id")
     command = """
         SELECT *
         FROM public.roles

@@ -25,6 +25,7 @@ def token_required(f):
             raise Unauthorized(invalid_msg)
 
         try:
+            print(token)
             data = jwt.decode(token, key=os.getenv('SECRET'), algorithms=["HS256"])
             logger.info(data)
             if 'db' not in g:
@@ -33,8 +34,8 @@ def token_required(f):
             return f( *args, **kwargs)
         except jwt.ExpiredSignatureError:
             raise Unauthorized(expired_msg)
-        except (jwt.InvalidTokenError, Exception) as e:
+        except jwt.InvalidTokenError as e:
             logger.debug(e)
-            raise Unauthorized(expired_msg)
+            raise Unauthorized(invalid_msg)
 
     return _verify
