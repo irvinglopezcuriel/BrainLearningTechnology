@@ -12,6 +12,10 @@ def handle_bad_request(e):
 
 @blueprint.app_errorhandler(Forbidden)
 def handle_forbidden(e):
+    return json_response(status_=403, message=e.description)
+
+@blueprint.app_errorhandler(Unauthorized)
+def handle_unauthorized(e):
     return json_response(status_=401, message=e.description)
 
 @blueprint.app_errorhandler(Exception)

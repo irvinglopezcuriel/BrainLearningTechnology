@@ -22,9 +22,10 @@ def token_required(f):
         }
 
         if not token:
-            raise Forbidden(invalid_msg)
+            raise Unauthorized(invalid_msg)
 
         try:
+            print(token)
             data = jwt.decode(token, key=os.getenv('SECRET'), algorithms=["HS256"])
             logger.info(data)
             if 'db' not in g:
@@ -32,9 +33,9 @@ def token_required(f):
             g.user = get_user_by_id(g.cursor, data['id'])
             return f( *args, **kwargs)
         except jwt.ExpiredSignatureError:
-            raise Forbidden(expired_msg)
-        except (jwt.InvalidTokenError, Exception) as e:
+            raise Unauthorized(expired_msg)
+        except jwt.InvalidTokenError as e:
             logger.debug(e)
-            raise Forbidden(expired_msg)
+            raise Unauthorized(invalid_msg)
 
     return _verify
