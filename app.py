@@ -1,7 +1,6 @@
 from flask import Flask, redirect, g
-from flask_json import FlaskJSON, json_response
-import traceback
-from tools.eeg import get_head_band_sensor_object
+from flask_json import FlaskJSON
+from tools.eeg import get_head_band_sensor_object, init_headband
 from tools.database.db_con import get_db_instance
 from tools.database.init_db import init_db
 from tools.token_required import token_required
@@ -30,8 +29,9 @@ def init_new_env():
     if 'db' not in g:
         g.db, g.cursor = get_db_instance()
 
-    if 'hb' not in g:
-        g.hb = get_head_band_sensor_object()
+    if not bool(strtobool(os.getenv('NO_HEADSET'))):
+        if 'hb' not in g:
+            g.hb = get_head_band_sensor_object()
 
 #This gets executed by default by the browser if no page is specified
 #So.. we redirect to the endpoint we want to load the base page
@@ -69,5 +69,7 @@ def exec_proc(proc_name):
     return resp
 
 if __name__ == '__main__':
+    if not bool(strtobool(os.getenv('NO_HEADSET'))):
+        init_headband()
     init_db()
     app.run(host='0.0.0.0', port=os.getenv('FRONTEND_PORT'), use_reloader=not bool(strtobool(os.getenv('PROD'))))
