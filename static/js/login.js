@@ -9,7 +9,6 @@ function handle_login() {
     const mail = document.getElementsByClassName('mail-input')[0].value
     const password = document.getElementsByClassName('password-input')[0].value
 
-    console.log(mail, password)
     if (mail && password) {
         function setHeader(xhr) {
             xhr.setRequestHeader('Authorization', localStorage.getItem("token"));

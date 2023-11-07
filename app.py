@@ -43,7 +43,6 @@ def login():
 def index():
     return redirect('/static/pages/home.html')
 
-
 @app.route("/secure_api/<proc_name>", methods=['GET', 'POST', 'DELETE'])
 @token_required
 def exec_secure_proc(proc_name):
