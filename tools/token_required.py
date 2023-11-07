@@ -25,8 +25,7 @@ def token_required(f):
             raise Unauthorized(invalid_msg)
 
         try:
-            print(token)
-            data = jwt.decode(token, key=os.getenv('SECRET'), algorithms=["HS256"])
+            data = jwt.decode(token, key=os.getenv('JWT_SECRET'), algorithms=["HS256"])
             logger.info(data)
             if 'db' not in g:
                 g.db, g.cursor = get_db_instance()

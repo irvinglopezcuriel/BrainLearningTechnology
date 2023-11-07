@@ -1,4 +1,4 @@
-from flask import Flask, redirect, g
+from flask import Flask, redirect, g, url_for, render_template
 from flask_json import FlaskJSON
 from tools.eeg import get_head_band_sensor_object, init_headband
 from tools.database.db_con import get_db_instance
@@ -36,8 +36,13 @@ def init_new_env():
 #This gets executed by default by the browser if no page is specified
 #So.. we redirect to the endpoint we want to load the base page
 @app.route('/') #endpoint
+def login():
+    return redirect('/static/pages/login.html')
+
+@app.route('/index')
 def index():
-    return redirect('/static/index.html')
+    return redirect('/static/pages/index.html')
+
 
 @app.route("/secure_api/<proc_name>", methods=['GET', 'POST', 'DELETE'])
 @token_required
