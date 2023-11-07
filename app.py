@@ -41,7 +41,7 @@ def login():
 
 @app.route('/index')
 def index():
-    return redirect('/static/pages/index.html')
+    return redirect('/static/pages/home.html')
 
 
 @app.route("/secure_api/<proc_name>", methods=['GET', 'POST', 'DELETE'])
