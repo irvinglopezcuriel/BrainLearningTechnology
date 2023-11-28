@@ -11,12 +11,12 @@ function changePage(url) {
       changePage(url)
     }, 2500);
   }
-  
+
 const survey = new Survey.Model(json);
 survey.onComplete.add((sender, options) => {
     console.log(JSON.stringify(sender.data, null, 3));
     //switch html to the index with the change page function
-    changePageAfter5sec("file:///C:/Users/jrami/OneDrive/Desktop/Github/370repo/BrainLearningTechnology/static/pages/index.html")
+    changePageAfter5sec("../pages/home.html")
 
 });
 
