@@ -55,20 +55,23 @@ a {
         display: flex;
         flex-direction: column;
         height: fit-content;
-        .email {
+        .basic-input:first-child {
+            margin-top: -3em;
+        }
+        .basic-input {
             background: white;
             box-shadow: 0 0 2em #e6e9f9;
             padding: 1em;
             border-radius: 20px;
             color: #4d4d4d;
-            margin-top: -3em;
+            margin-bottom: 10px;
     
             .sec-2 {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
 
-                .mail-input {
+                .basic-input2 {
                     margin-left: 5px;
                 }
             }
@@ -81,7 +84,6 @@ a {
             gap: 0.5em;
             border-radius: 20px;
             color: #4d4d4d;
-            margin-top: 10px;
     
             .sec-2 {
                 display: flex;
@@ -113,7 +115,8 @@ a {
             display: flex;
             font-size: 0.7em;
             color: #5e5e5e;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             
             span {
                 cursor: pointer;
