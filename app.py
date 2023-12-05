@@ -47,14 +47,6 @@ def index():
     else:
         return redirect('/static/pages/home.html')
 
-@app.route('/admin/users')
-@token_required
-def admin_users():
-    if g.userRole and g.userRole[1] != 'admin':
-        raise Unauthorized("Insuficient permission")
-    else:
-        return redirect('/static/pages/admin/users.html')
-    
 @app.route('/admin/categories')
 @token_required
 def admin_categories():

@@ -13,7 +13,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        width: 15%;
+        width: 10%;
         margin-right: 10px;
         .home,
         .logout,

@@ -24,9 +24,6 @@
                 <div class="home" onclick="goToHome()">
                     <i class="fa-solid fa-house fa-2xl"></i>
                 </div>
-                <div class="users" onclick="goToUsers()">
-                    <i class="fa-solid fa-users fa-2xl"></i>
-                </div>
                 <div class="categories" onclick="goToCategories()">
                     <i class="fa-solid fa-list fa-2xl"></i>
                 </div>
@@ -35,8 +32,39 @@
                 </div>
             </div>
         </div>
+        <div class="main">
+            <div class="user-table-area">
+                <table id="user-table">
+                    <colgroup>
+                        <col width="22%">
+                        <col width="22%">
+                        <col width="22%">
+                        <col width="21%">
+                        <col width="6%">
+                        <col width="7%">
+                    </colgroup>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th class="isActive">isActive</th>
+                        <th>Actions</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
         <div>
+            <dialog id="promote-user">
+                <h2>Promote User</h2>
+                <select name="roles" id="roles-select" style="display: block; margin-bottom: 15px;">
 
+                </select>
+                <div class="button-dialog">
+                    <button id="promote-user-btn">Promote User</button>
+                    <button id="close-dialog">Close</button>
+                </div>
+            </dialog>
         </div>
         <!--JavaScript at end of body for optimized loading-->
         <script type="text/javascript" src="../../js/materialize.min.js"></script>
