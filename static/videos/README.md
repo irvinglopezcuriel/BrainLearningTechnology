@@ -1,3 +1,3 @@
 Naming conventions of videos are as follows:  
-  Educational: Unit#-Lesson#-Video#.mp4  
-  Entertainment: #.mp4  
+&nbsp;&nbsp;&nbsp;&nbsp;Educational: Unit#-Lesson#-Video#.mp4  
+&nbsp;&nbsp;&nbsp;&nbsp;Entertainment: #.mp4  
