@@ -33,7 +33,71 @@
             </div>
         </div>
         <div>
+            <div class="categories">
+                <h3 class="labels">Categories</h3>
+                <div class="add-category-btn tables-btns">
+                    <button onclick="addCategory()">Add Category</button>
+                </div>
+                <div class="categories-table tables">
+                    <table id="categories-table-2">
+                        <colgroup>
+                            <col width="93%">
+                            <col width="7%">
+                        </colgroup>
+                        <tr>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="subcategorie">
+                <hr class="separator">
+                <h3 class="labels">Subcategories</h3>
+                <div class="add-subcategory-btn">
+                    <button onclick="addSubCategory()">Add Subcategory</button>
+                </div>
+                <div class="subcategories-table tables">
+                    <table id="subcategories-table-2">
+                        <colgroup>
+                            <col width="93%">
+                            <col width="7%">
+                        </colgroup>
+                        <tr>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div>
+            <dialog id="add-category">
+                <h2>Add Category</h2>
+                <input type="text" id="name-category" name="name-category" placeholder="Name"/>
 
+                <div class="button-dialog">
+                    <button id="add-category-btn">Add Category</button>
+                    <button id="add-category-close-dialog">Close</button>
+                </div>
+            </dialog>
+            <dialog id="add-subcategory">
+                <h2>Add SubCategory</h2>
+                <input type="text" id="name-subcategory" name="name-subcategory" placeholder="Name"/>
+
+                <div class="button-dialog">
+                    <button id="add-subcategory-btn">Add SubCategory</button>
+                    <button id="add-subcategory-close-dialog">Close</button>
+                </div>
+            </dialog>
+            <dialog id="delete-item">
+                <h2>Delete</h2>
+                <h3>Are you sure you want to delete this ?</h3>
+                <div class="button-dialog">
+                    <button id="delete-item-btn">Delete</button>
+                    <button id="delete-close-dialog">Close</button>
+                </div>
+            </dialog>
         </div>
         <!--JavaScript at end of body for optimized loading-->
         <script type="text/javascript" src="../../js/materialize.min.js"></script>
