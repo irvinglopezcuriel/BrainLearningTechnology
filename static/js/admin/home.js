@@ -150,13 +150,31 @@ function modifyUserOpen(id) {
     const modifyUserDialog = document.getElementById('modify-user');
     const modifyUserBtn = document.getElementById('modify-user-btn');
     const closeBtn = document.getElementById('modify-close-dialog');
+    const firstnameInput = document.getElementById('firstname');
+    const lastnameInput = document.getElementById('lastname');
     
     closeBtn.addEventListener('click', () => {
         modifyUserDialog.close();
     });
     
     modifyUserBtn.addEventListener('click', () => {
-        modifyUserDialog.close();
+        $.ajax({
+            url: "/secure_api/modify_user",
+            type: 'POST',
+            data: {
+                "userId": userId,
+                "firstname": firstnameInput.value,
+                "lastname": lastnameInput.value
+            },
+            success: function(data) {
+                modifyUserDialog.close();
+                location.reload()
+            },
+            error: function(error) {
+                console.error(error)
+            },
+            beforeSend: function(xhr){xhr.setRequestHeader('Authorization', localStorage.getItem("token"));},
+        });
     });
     
     modifyUserDialog.showModal();
