@@ -95,7 +95,7 @@ function setTableData(users) {
                     '<div class="dropdown">' +
                         '<button onclick="handleDropdown(' + index1 + ')" class="dropbtn">Actions</button>' +
                         '<div id="myDropdown_' + index1 + '" class="dropdown-contentn">' +
-                            '<a href="./user/modifyUser.html?id=' + userObj[0] + '">Modify User</a>' +
+                            '<a class="clickable" onclick="modifyUserOpen(\'' + userObj[0] + '\')">Modify User</a>' +
                             '<a class="clickable" onclick="promoteUserOpen(\'' + userObj[0] + '\')">Promote User</a>' +
                             '<a class="clickable" onclick="deleteUser(\'' + userObj[0] + '\')">Delete User</a>' +
                         '</div>' +
@@ -114,7 +114,7 @@ function promoteUserOpen(id) {
     const userId = id
     const promoteDialog = document.getElementById('promote-user');
     const promoteUserBtn = document.getElementById('promote-user-btn');
-    const closeBtn = document.getElementById('close-dialog');
+    const closeBtn = document.getElementById('promote-close-dialog');
     const select = document.getElementById('roles-select')
 
     setRoleDialog(roles, userId)
@@ -125,10 +125,46 @@ function promoteUserOpen(id) {
     
     promoteUserBtn.addEventListener('click', () => {
         console.log(select.value)
-        promoteDialog.close();
+        $.ajax({
+            url: "/secure_api/promote_user",
+            type: 'POST',
+            data: {
+                "userId": userId,
+                "roleId": select.value
+            },
+            success: function(data) {
+                promoteDialog.close();
+                location.reload()
+            },
+            error: function(error) {
+                console.error(error)
+            },
+            beforeSend: function(xhr){xhr.setRequestHeader('Authorization', localStorage.getItem("token"));},
+        });
     });
     
     promoteDialog.showModal();
+}
+
+function modifyUserOpen(id) {
+    
+    const userId = id
+    const modifyUserDialog = document.getElementById('modify-user');
+    const modifyUserBtn = document.getElementById('modify-user-btn');
+    const closeBtn = document.getElementById('modify-close-dialog');
+    const select = document.getElementById('roles-select')
+
+    setRoleDialog(roles, userId)
+    
+    closeBtn.addEventListener('click', () => {
+        modifyUserDialog.close();
+    });
+    
+    modifyUserBtn.addEventListener('click', () => {
+        modifyUserDialog.close();
+    });
+    
+    modifyUserDialog.showModal();
 }
 
 function deleteUser(id) {
