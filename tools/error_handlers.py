@@ -8,14 +8,17 @@ blueprint = flask.Blueprint('error_handlers', __name__)
 
 @blueprint.app_errorhandler(BadRequest)
 def handle_bad_request(e):
+    logger.error(e)
     return json_response(status_=400, message=e.description)
 
 @blueprint.app_errorhandler(Forbidden)
 def handle_forbidden(e):
+    logger.error(e)
     return json_response(status_=403, message=e.description)
 
 @blueprint.app_errorhandler(Unauthorized)
 def handle_unauthorized(e):
+    logger.error(e)
     return json_response(status_=401, message=e.description)
 
 @blueprint.app_errorhandler(Exception)

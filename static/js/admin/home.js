@@ -110,7 +110,6 @@ function setTableData(users) {
 }
 
 function promoteUserOpen(id) {
-    
     const userId = id
     const promoteDialog = document.getElementById('promote-user');
     const promoteUserBtn = document.getElementById('promote-user-btn');
@@ -147,14 +146,10 @@ function promoteUserOpen(id) {
 }
 
 function modifyUserOpen(id) {
-    
     const userId = id
     const modifyUserDialog = document.getElementById('modify-user');
     const modifyUserBtn = document.getElementById('modify-user-btn');
     const closeBtn = document.getElementById('modify-close-dialog');
-    const select = document.getElementById('roles-select')
-
-    setRoleDialog(roles, userId)
     
     closeBtn.addEventListener('click', () => {
         modifyUserDialog.close();
@@ -168,7 +163,34 @@ function modifyUserOpen(id) {
 }
 
 function deleteUser(id) {
-
+    const userId = id
+    const deleteDialog = document.getElementById('delete-user');
+    const deleteUserBtn = document.getElementById('delete-user-btn');
+    const closeBtn = document.getElementById('delete-close-dialog');
+    
+    closeBtn.addEventListener('click', () => {
+        deleteDialog.close();
+    });
+    
+    deleteUserBtn.addEventListener('click', () => {
+        $.ajax({
+            url: "/secure_api/delete_user",
+            type: 'POST',
+            data: {
+                "userId": userId
+            },
+            success: function(data) {
+                deleteDialog.close();
+                location.reload()
+            },
+            error: function(error) {
+                console.error(error)
+            },
+            beforeSend: function(xhr){xhr.setRequestHeader('Authorization', localStorage.getItem("token"));},
+        });
+    });
+    
+    deleteDialog.showModal();
 }
 
 /* When the user clicks on the button,

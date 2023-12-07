@@ -11,7 +11,7 @@ def handle_request():
     logger.debug("POST Promote User Handle Request")
     
     if g.userRole[2] != 1:
-        raise Unauthorized("Invalid levelOfAccess")
+        raise Forbidden("Insufficient permission")
     else:
         
         userId = request.form.get('userId')
