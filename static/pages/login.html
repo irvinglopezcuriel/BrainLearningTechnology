@@ -15,6 +15,24 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>BLT | Login</title>
+      <style>
+            .AccessibilityToggle{
+              width: 3rem; 
+              height: 3rem; 
+              left: 96%; 
+              top: 93%; 
+              position: fixed; 
+              border-radius: 100px;
+              transition: 0.5s;
+            }
+            .AccessibilityToggle:hover {
+              transform: scale(1.2);
+              transition: 0.5s;
+            }
+            .AccessibilityToggle:active{
+              transform: scale(1);
+            }
+      </style>
     </head>
     <body>
       <div class="screen-1">
@@ -49,4 +67,5 @@
       <script type="text/javascript" src="../js/materialize.min.js"></script>
       <script type="text/javascript" src="../js/login.js"></script>
     </body>
+    <a href=/static/pages/alts/access_login.html><img class="AccessibilityToggle" src=/static/img/access.webp /></a>
 </html>

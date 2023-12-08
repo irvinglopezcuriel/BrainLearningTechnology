@@ -1,26 +1,52 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>About Us</title>
-    <style>
-  	.header{
-      height: 150px;
-      border: 1px solid;
-      background-color: #66ccff;
-    }
-  	</style>
-  </head>
-  <body>
-    <div class="header" style="  column-rule-style: hidden; column-count: 2;">
-      <div style="text-align: left;"><img src="../img/logo_150trans.png" title="Logo"></div>
-      <div style="text-align: right;"> <a href="home.html" title="Home">HOME</a>
-        | <a href="account.html" title="Account">ACCOUNT</a> | <a href="subject_library.html"
-          title="Subject Library">SUBJECT LIBRARY</a> | <a href="about_us.html"
-          title="About Us">ABOUT US</a> </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>BLT</title>
+</head>
+<body>
+  <div class="wrapper">
+  <!-- Static Navigation Bar -->
+  <aside class="NavBar">
+    <a id="home" class="NavItem" href=/static/pages/alts/access_home.html><img src=/static/img/logo_no_background.png alt="Home"/></a>
+    <a id="login" class="NavItem" href=/static/pages/alts/access_login.html>Login</a>
+    <a id="library" class="NavItem" href=/static/pages/alts/access_library.html>Library</a>
+    <a id="about" class="NavItem" href=/static/pages/alts/access_about.html>About Us</a>
+  </aside>
+  <!-- Main Page -->
+  <main class="Content"> <!--Flex Column-->
+    <h1 class="ContItem" id="header">About Us</h1>
+    <!-- ∨ page content goes here ∨ -->
+    <div class="ContItem"> Content Item 1
+      <div class="Center"> Center 1
+        <div class="CenterItem"> Center Item 1</div>
+        <div class="CenterItem"> Center Item 2</div>
+        <div class="CenterItem"> Center Item 3</div>
+      </div>
+      <div class="Center"> Center 2
+          <div class="CenterItem"> Center Item
+          </div>
+      </div>
+      <div class="Center"> Center 3
+          <div class="CenterItem"> Center Item
+          </div>
+      </div>
     </div>
-    <div style="text-align: center;"> <br>
-      This is where the consumer will be able to learn more about us, as well as
-      how the process works </div>
-  </body>
-</html>
+    <div class="ContItem"> Content Item 2
+      <div class="Center"> Center
+        <div class="CenterItem"> Center Item
+        </div>
+      </div>
+    </div>
+    <div class="ContItem"> Content Item 3
+      <div class="Center"> Center
+        <div class="CenterItem"> Center Item
+        </div>
+      </div>
+    </div>
+    <!-- ^ page content goes here ^ -->
+  </main>
+  <a href=/static/pages/about_us.html><img class="AccessibilityToggle" src=/static/img/access.webp /></a>
+  <script src="script.js"></script>
+</div>
+</body>

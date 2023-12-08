@@ -24,7 +24,7 @@
     .NavItem{
       font-size: 3rem;
       color: white;
-      border: 1px #3A8FDE solid;
+      border: 1px #4f6db8 solid;
       background-color:dodgerblue;
       text-align: center;
       align-self:center;
@@ -52,21 +52,25 @@
     flex:1;
   }
     .ContItem{
+      display: flex;
+      border: 2px solid;
       background-color: #313131;
       color: white;
       margin: 0px;
     }
       .Center {
         display: flex;
+        flex: auto;
+        border: 2px red solid;
         flex-direction: column;
         padding-bottom: 10rem;
         padding-left: 1rem;
       }
         .CenterItem{
-          display: flex;
+          flex: 1;
+          border: 2px blue solid;
           padding: 3rem;
           align-self: center;
-          flex-grow:1;
         }
 .AccessibilityToggle{
   width: 3rem; 
@@ -76,6 +80,13 @@
   position: fixed; 
   border-radius: 100px;
   transition: 0.5s;
+}
+.AccessibilityToggle:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+.AccessibilityToggle:active{
+  transform: scale(1);
 }
 /* Default Tag Customization */
 h1{
@@ -95,8 +106,3 @@ h2{
   width:40rem;
 }
 
-
-.AccessibilityToggle:hover {
-  transform: scale(1.2);
-  transition: 0.5s;
-}
