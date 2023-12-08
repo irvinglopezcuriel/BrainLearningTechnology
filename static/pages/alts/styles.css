@@ -1,0 +1,52 @@
+body {
+  display: flex;
+  margin: 0px;
+  font-family: Khmer;
+}
+.NavBar {
+  display: flex;
+  flex-direction: column;
+}
+.NavItem{
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  line-height: 15rem;
+  width: 15rem; height: 15rem;
+  border: 2px #3A8FDE solid;
+  background-color: #3fa9cb;
+}
+.Content {
+  display: flex;
+  flex-direction: column;
+}
+.ContItem{
+  background-color: #313131;
+  color: white;
+  margin: 0px;
+  display: flex;
+}
+.CenterItem{
+  display: flex;
+  padding: 3rem;
+}
+h1{
+  font-size: 85px; height:15rem;
+  line-height: 15rem; padding-left: 1rem
+}
+h2{
+  font-size: 40px;
+}
+
+.Center {
+  display: flex;
+}
+
+.AccessibilityToggle{
+  width: 3rem; 
+  height: 3rem; 
+  left: 95%; 
+  top: 240%; 
+  position: absolute; 
+  border-radius: 100px
+}
