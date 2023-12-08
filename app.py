@@ -37,7 +37,7 @@ def init_new_env():
 #So.. we redirect to the endpoint we want to load the base page
 @app.route('/') #endpoint
 def login():
-    return redirect('/static/pages/content_acc.html')
+    return redirect('/static/pages/home.html')
 
 @app.route('/index')
 def index():
