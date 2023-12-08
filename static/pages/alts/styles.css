@@ -3,6 +3,10 @@
   width:100%;
   margin: 0px;
   font-family: Khmer;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scroll-snap-align: center;
+  background-color: #313131;
 }
 .wrapper{
   display: flex;
@@ -19,7 +23,7 @@
   font-size: 3rem;
   color: white;
   border: 1px #3A8FDE solid;
-  background-color: #3fa9cb;
+  background-color:dodgerblue;
   text-align: center;
   align-self:stretch;
   line-height: 15rem;
@@ -38,15 +42,19 @@
   margin: 0px;
   /* display: flex; */
 }
+
+h1{
+  font-size: 85px; height:15rem;
+  line-height: 15rem; padding-left: 1rem;
+  background: linear-gradient(30deg, rgba(43,84,214,1) 0%, rgba(30,215,252,1) 78%);  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 200ms;
+}
 .CenterItem{
   display: flex;
   padding: 3rem;
   align-self: center;
   /* align-self: end; */
-}
-h1{
-  font-size: 85px; height:15rem;
-  line-height: 15rem; padding-left: 1rem;
 }
 h2{
   font-size: 40px;
@@ -78,4 +86,8 @@ h2{
 .NavItem:hover{
   transform: scale(1.1);
   transition: 200ms;
+}
+
+.NavItem:active{
+  transform: scale(1);
 }
