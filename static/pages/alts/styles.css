@@ -53,7 +53,7 @@
   }
     .ContItem{
       display: flex;
-      border: 2px solid;
+      /* border: 2px solid; */
       background-color: #313131;
       color: white;
       margin: 0px;
@@ -61,16 +61,16 @@
       .Center {
         display: flex;
         flex: auto;
-        border: 2px red solid;
+        /* border: 2px red solid; */
         flex-direction: column;
-        padding-bottom: 10rem;
-        padding-left: 1rem;
+        padding: 1rem;
       }
         .CenterItem{
-          flex: 1;
-          border: 2px blue solid;
-          padding: 3rem;
+          flex-shrink: 1;
+          /* border: 2px blue solid; */
+          padding: 1rem;
           align-self: center;
+          font-size: 1.5rem;
         }
 .AccessibilityToggle{
   width: 3rem; 
@@ -103,6 +103,10 @@ h1{
 }
 h2{
   font-size: 40px;
-  width:40rem;
+  width:20rem;
 }
 
+#stdyimg{
+  height: 30rem;
+  width: 50rem;
+}
