@@ -91,7 +91,7 @@
 /* Default Tag Customization */
 h1{
   font-size: 85px; height:15rem;
-  line-height: 15rem; padding-left: 1rem;
+  line-height: 15rem; padding: 2rem;
   background: linear-gradient(
     30deg,
     rgba(43,84,214,1) 0%,

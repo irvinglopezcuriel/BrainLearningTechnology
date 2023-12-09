@@ -111,7 +111,7 @@ span {
         .footer {
             display: flex;
             font-size: 0.7em;
-            color: #5e5e5e;
+            color: #000000;
             justify-content: space-between;
             
             span {

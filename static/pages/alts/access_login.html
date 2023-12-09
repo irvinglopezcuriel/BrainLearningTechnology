@@ -4,8 +4,8 @@
         <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="../css/login.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="/static/css/login.css"  media="screen,projection"/>
 
       <!-- JQuery -->
       <script src="https://code.jquery.com/jquery-3.6.0.js" 
@@ -14,12 +14,31 @@
       <script src="https://kit.fontawesome.com/3c3b4c94bb.js" crossorigin="anonymous"></script>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>BLT | Login</title>
+      <!-- <link rel="stylesheet" href="styles.css"> -->
+      <style>
+        .AccessibilityToggle{
+          width: 3rem; 
+          height: 3rem; 
+          left: 96%; 
+          top: 93%; 
+          position: fixed; 
+          border-radius: 100px;
+          transition: 0.5s;
+        }
+        .AccessibilityToggle:hover {
+          transform: scale(1.2);
+          transition: 0.5s;
+        }
+        .AccessibilityToggle:active{
+          transform: scale(1);
+        } 
+      </style>
+      <title>BLT | Login</title>
     </head>
-    <body>
-      <div class="screen-1">
+    <body style="background-color: #313131;">
+      <div class="screen-1" style="transform: scale(2); box-shadow: 0 0 2em #000000; background-color: gray;">
         <div class="logo">
-          <img class="logo-img" src="../img/logo_no_background.png">
+          <img class="logo-img" src="/static/img/logo_no_background.png">
         </div>
         <div class="form">
           <div class="email">
@@ -46,7 +65,8 @@
         </div>
       </div>
         <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="../js/materialize.min.js"></script>
-      <script type="text/javascript" src="../js/login.js"></script>
+      <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+      <script type="text/javascript" src="/static/js/login.js"></script>
     </body>
+    <a href=/static/pages/login.html><img class="AccessibilityToggle" src=/static/img/access.webp /></a>
 </html>
