@@ -13,15 +13,15 @@
   display: flex;
   flex-direction:row;
 }
-/* Main styling */
+  /* Main styling */
   .NavBar {
     display: flex;
     flex-direction: column;
     flex:1;
     position: fixed;
     height:100%;
-  }
-    .NavItem{
+
+    .NavItem {
       font-size: 3rem;
       color: white;
       border: 1px #4f6db8 solid;
@@ -45,26 +45,27 @@
     .NavItem:active{
       transform: scale(1);
     }
+  }
   .Content {
     padding-left: 15rem;
     display: flex;
     flex-direction: column;
     flex:1;
-  }
+
     .ContItem{
       display: flex;
       /* border: 2px solid; */
       background-color: #313131;
       color: white;
       margin: 0px;
-    }
+      
       .Center {
         display: flex;
         flex: auto;
         /* border: 2px red solid; */
         flex-direction: column;
         padding: 1rem;
-      }
+    
         .CenterItem{
           flex-shrink: 1;
           /* border: 2px blue solid; */
@@ -72,41 +73,45 @@
           align-self: center;
           font-size: 1.5rem;
         }
-.AccessibilityToggle{
-  width: 3rem; 
-  height: 3rem; 
-  left: 96%; 
-  top: 93%; 
-  position: fixed; 
-  border-radius: 100px;
-  transition: 0.5s;
-}
-.AccessibilityToggle:hover {
-  transform: scale(1.2);
-  transition: 0.5s;
-}
-.AccessibilityToggle:active{
-  transform: scale(1);
-}
-/* Default Tag Customization */
-h1{
-  font-size: 85px; height:15rem;
-  line-height: 15rem; padding: 2rem;
-  background: linear-gradient(
-    30deg,
-    rgba(43,84,214,1) 0%,
-    rgba(30,215,252,1) 78%
-    );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: 200ms;
-}
-h2{
-  font-size: 40px;
-  width:20rem;
-}
-
-#stdyimg{
-  height: 30rem;
-  width: 50rem;
-}
+      }
+    }
+  }
+  .AccessibilityToggle{
+    width: 3rem; 
+    height: 3rem; 
+    left: 96%; 
+    top: 93%; 
+    position: fixed; 
+    border-radius: 100px;
+    transition: 0.5s;
+  }
+  .AccessibilityToggle:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
+  .AccessibilityToggle:active{
+    transform: scale(1);
+  }
+  /* Default Tag Customization */
+  h1{
+    font-size: 85px; height:15rem;
+    line-height: 15rem; padding: 2rem;
+    background: linear-gradient(
+      30deg,
+      rgba(43,84,214,1) 0%,
+      rgba(30,215,252,1) 78%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: 200ms;
+    }
+    h2{
+      font-size: 40px;
+      width:20rem;
+    }
+    
+    #stdyimg{
+      height: 30rem;
+      width: 50rem;
+    }
