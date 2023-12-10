@@ -17,28 +17,43 @@
   <main class="Content"> <!--Flex Column-->
     <h1 class="ContItem" id="header">About Us</h1>
     <!-- ∨ page content goes here ∨ -->
-    <div class="ContItem"> Content Item 1
-      <div class="Center"> Center 1
-        <div class="CenterItem"> Center Item 1</div>
-        <div class="CenterItem"> Center Item 2</div>
-        <div class="CenterItem"> Center Item 3</div>
-      </div>
-      <div class="Center"> Center 2
-          <div class="CenterItem"> Center Item
-          </div>
-      </div>
-      <div class="Center"> Center 3
-          <div class="CenterItem"> Center Item
-          </div>
+    <div class="ContItem">
+      <div class="Center" style="flex-direction: row; justify-content: space-around; padding:6rem;">
+        <a href="#Mission" id="abtcard"> Our Mission</a>
+        <a href="#Team" id="abtcard">Get to Know the Team</a>
+        <a href="/static/pages/alts/access_contact.html" id="abtcard">Need to Reach Out?</a>
       </div>
     </div>
-    <div class="ContItem"> Content Item 2
+    <div class="ContItem">
+      <!-- FAQ Section -->
+      <div class="Center">
+        <div class="CenterItem"> FAQ
+          <button type="button" class="collapsible">Open Collapsible</button>
+            <div class="hidden">
+              <p>Lorem ipsum...</p>
+            </div>
+          <button type="button" class="collapsible">Open Collapsible</button>
+          <div class="hidden">
+            <p>Lorem ipsum...</p>
+          </div>
+          <button type="button" class="collapsible">Open Collapsible</button>
+            <div class="hidden">
+              <p>Lorem ipsum...</p>
+            </div>
+            <button type="button" class="collapsible">Open Collapsible</button>
+            <div class="hidden">
+              <p>Lorem ipsum...</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="ContItem"> Mission Statement
       <div class="Center"> Center
         <div class="CenterItem"> Center Item
         </div>
       </div>
     </div>
-    <div class="ContItem"> Content Item 3
+    <div class="ContItem"> The Team
       <div class="Center"> Center
         <div class="CenterItem"> Center Item
         </div>
