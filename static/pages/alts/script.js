@@ -1,16 +1,16 @@
-// var coll = document.getElementsByClassName("collapsible");
-// var i;
+var coll = document.getElementsByClassName("collapsible");
+var i;
 
-// for (i = 0; i < coll.length; i++) {
-//   coll[i].addEventListener("click", function() {
-//     this.classList.toggle("active");
-//     var content = this.nextElementSibling;
-//     if (content.style.display === "blocked") {
-//       content.style.display="none";
-//       content.style.opacity=0;
-//     } else {
-//       content.style.display="block";
-//       content.style.opacity=1;
-//     }
-//   });
-// }
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display="none";
+      content.style.opacity=0;
+    } else {
+      content.style.display="block";
+      content.style.opacity=1;
+    }
+  });
+}

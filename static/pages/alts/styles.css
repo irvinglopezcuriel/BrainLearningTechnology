@@ -111,6 +111,14 @@ h2{
   font-size: 40px;
   width:20rem;
 }
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#ffffff;
+  height: 3px;
+}
 
 #stdyimg{
   height: 30rem;
@@ -170,7 +178,4 @@ h2{
   opacity: 0;
   transition: display 0.5s, opacity 0.5s linear;
 }
-:active + .hidden{
-  opacity:1;
-  display:block;
-}
+
