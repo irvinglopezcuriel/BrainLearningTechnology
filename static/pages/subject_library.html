@@ -11,16 +11,33 @@
     }
   	</style>
   </head>
-  <body>
-    <div class="header" style="  column-rule-style: hidden; column-count: 2;">
-      <div style="text-align: left;"><img src="../img/logo_150trans.png" title="Logo"></div>
-      <div style="text-align: right;"> <a href="home.html" title="Home">HOME</a>
-        | <a href="account.html" title="Account">ACCOUNT</a> | <a href="subject_library.html"
-          title="Subject Library">SUBJECT LIBRARY</a> | <a href="about_us.html"
-          title="About Us">ABOUT US</a> </div>
-    </div>
-    <div style="text-align: center;"> <br>
-      This is where the user will have access to our subject library of
-      educational content </div>
+    
+	<body>
+		<div class="header" style="  column-rule-style: hidden; column-count: 2;">
+		  <div style="text-align: left;"><img src="../img/logo_150trans.png" title="Logo"></div>
+		  <div style="text-align: right;"> <a href="home.html" title="Home">HOME</a>
+			| <a href="account.html" title="Account">ACCOUNT</a> | <a href="subject_library.html"
+			  title="Subject Library">SUBJECT LIBRARY</a> | <a href="about_us.html"
+			  title="About Us">ABOUT US</a> </div>
+		</div>
+		<div style="column-rule-style: hidden; column-count: 4;">
+			<div>
+				MATH<br>
+				<a href="contentPage.html" title="Content" onclick='sendData(0, 0, 0)'> 1-1-1.mp4 </a><br>
+				<a href="contentPage.html" title="Content" onclick='sendData(0, 0, 1)'> 1-1-2.mp4 </a><br>
+				<a href="contentPage.html" title="Content" onclick='sendData(0, 0, 2)'> 1-1-3.mp4 </a><br>
+
+				
+			</div>
+
+		</div>
+	<script>
+		function sendData(i, j, k){
+			localStorage.setItem('i', i);
+			localStorage.setItem('j', j);
+			localStorage.setItem('k', k);
+		}
+  	</script>
+	
   </body>
 </html>
