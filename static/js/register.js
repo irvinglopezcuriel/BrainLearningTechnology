@@ -5,31 +5,26 @@ jQuery.ajaxSettings.xhr = function () {
   return xhr;
 };
 
-function handle_login() {
-    const mail = document.getElementsByClassName('mail-input')[0].value
-    const password = document.getElementsByClassName('password-input')[0].value
+function handle_register() {
+    const firstname = document.getElementById('firstname').value
+    const lastname = document.getElementById('lastname').value
+    const mail = document.getElementById('email').value
+    const password = document.getElementById('password').value
 
-    if (mail && password) {
-        function setHeader(xhr) {
-            xhr.setRequestHeader('Authorization', localStorage.getItem("token"));
-        }
-
-        $.post("/open_api/login", {"mail": mail, "password": password},
+    if (firstname && lastname && mail && password) {
+        $.post("/open_api/register", {"firstname": firstname, "lastname": lastname, "email": mail, "password": password},
         function(data, textStatus) {
             //this gets called when browser receives response from server
             if (data && data.status === 200) {
-                localStorage.setItem("token", data.token)
-                localStorage.setItem("role", data.role)
                 $.ajax({
-                    url: "/index",
+                    url: "/",
                     type: 'GET',
                     success: function() {
                         window.location.href = xhr.responseURL
                     },
                     error: function(error) {
                         console.error(error)
-                    },
-                    beforeSend: setHeader
+                    }
                 });
             }
         }, "json").fail( function(response) {

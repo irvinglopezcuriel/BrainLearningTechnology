@@ -4,6 +4,7 @@ from flask import request, g
 from flask_json import json_response
 import os
 from tools.database.tables.users.get_user_by_id import get_user_by_id
+from tools.database.tables.roles.get_role_by_id import get_role_by_id
 from tools.database.db_con import get_db_instance
 from werkzeug.exceptions import *
 
@@ -30,6 +31,7 @@ def token_required(f):
             if 'db' not in g:
                 g.db, g.cursor = get_db_instance()
             g.user = get_user_by_id(g.cursor, data['id'])
+            g.userRole = get_role_by_id(g.cursor, g.user[5])
             return f( *args, **kwargs)
         except jwt.ExpiredSignatureError:
             raise Unauthorized(expired_msg)

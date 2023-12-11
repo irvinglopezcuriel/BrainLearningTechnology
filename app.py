@@ -40,9 +40,20 @@ def login():
     return redirect('/static/pages/login.html')
 
 @app.route('/index')
+@token_required
 def index():
-    return redirect('/static/pages/home.html')
+    if g.userRole and g.userRole[1] == 'admin':
+        return redirect('/static/pages/admin/home.html')
+    else:
+        return redirect('/static/pages/home.html')
 
+@app.route('/admin/categories')
+@token_required
+def admin_categories():
+    if g.userRole and g.userRole[1] != 'admin':
+        raise Unauthorized("Insuficient permission")
+    else:
+        return redirect('/static/pages/admin/categories.html')
 
 @app.route("/secure_api/<proc_name>", methods=['GET', 'POST', 'DELETE'])
 @token_required
