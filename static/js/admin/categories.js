@@ -14,6 +14,8 @@ function getCategories() {
         type: 'GET',
         success: function(data) {
             categories = data
+            console.log(data)
+            setCategories(data)
         },
         error: function(error) {
             console.error(error)
@@ -28,6 +30,8 @@ function getSubCategories() {
         type: 'GET',
         success: function(data) {
             subCategories = data
+            console.log(data)
+            setSubCategories(data)
         },
         error: function(error) {
             console.error(error)
@@ -37,7 +41,7 @@ function getSubCategories() {
 }
 
 function setCategories(categories) {
-    const table = document.getElementById("")
+    const table = document.getElementById("categories-table-2")
     categories.forEach((category, index1) => {
         let newRow = document.createElement("tr")
         const categoryObj = Object.values(category)
@@ -63,7 +67,7 @@ function setCategories(categories) {
 }
 
 function setSubCategories(subcategories) {
-    const table = document.getElementById("")
+    const table = document.getElementById("subcategories-table-2")
     subcategories.forEach((subcategory, index1) => {
         let newRow = document.createElement("tr")
         const subcategoryObj = Object.values(subcategory)
@@ -162,7 +166,7 @@ function addCategory() {
     
     addCategoryBtn.addEventListener('click', () => {
         $.ajax({
-            url: "/secure_api/add_subcategory",
+            url: "/secure_api/add_category",
             type: 'POST',
             data: {
                 "name": input.value
@@ -211,3 +215,23 @@ function addSubCategory() {
     
     addSubDialog.showModal();
 }
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function handleDropdown(id) {
+    document.getElementById("myDropdown_" + id).classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-contentn");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+    }

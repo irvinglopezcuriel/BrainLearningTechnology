@@ -102,7 +102,7 @@ def init_categories_table(cur):
         command = """
             CREATE TABLE IF NOT EXISTS categories(
                 id uuid PRIMARY KEY NOT NULL UNIQUE,
-                name varchar(64) NOT NULL
+                name varchar(64) NOT NULL UNIQUE
             )
         """
         cur.execute(command)
@@ -114,7 +114,7 @@ def init_subcategories_table(cur):
         command = """
             CREATE TABLE IF NOT EXISTS subcategories(
                 id uuid PRIMARY KEY NOT NULL UNIQUE,
-                name varchar(64) NOT NULL
+                name varchar(64) NOT NULL UNIQUE
             )
         """
         cur.execute(command)
