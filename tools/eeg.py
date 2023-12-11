@@ -1,10 +1,7 @@
-from neurosdk.scanner import Scanner
+rrfrom neurosdk.scanner import Scanner
 from neurosdk.sensor import Sensor
 from neurosdk.brainbit_sensor import BrainBitSensor
 from neurosdk.cmn_types import *
-
-from flask import Flask, render_template
-app = Flask(__name__)
 
 from tools.logging import logger
 from distutils.util import strtobool
@@ -13,24 +10,6 @@ import os
 #doing all this a the "module level" in "Demo" server mode it will work fine :)
 gl_sensor = None
 gl_scanner = None
-
-@app.route('/')
-def index():
-  return render_template('connecting.html')
-
-@app.route('/my-link/')
-def my_link():
-  print ("connecting to the headband (tester)")
-
-  return 'Click.'
-
-if my_link():
-  print("connected")
-else:
-  print("not connected")
-
-if __name__ == '__main__':
-  app.run(debug=True)
 
 def on_sensor_state_changed(sensor, state):
     logger.debug('Sensor {0} is {1}'.format(sensor.Name, state))
@@ -61,4 +40,3 @@ def init_headband():
 def get_head_band_sensor_object():
     if not bool(strtobool(os.getenv('NO_HEADSET'))):
         return gl_sensor
-    

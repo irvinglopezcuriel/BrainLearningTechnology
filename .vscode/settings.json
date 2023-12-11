@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Brian Wave Data",
+            "group": "BLT",
+            "password": "password",
+            "username": "admin",
+            "database": "myshop"
+        }
+    ]
+}
