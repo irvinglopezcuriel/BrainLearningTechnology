@@ -4,12 +4,19 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Content Page.html</title>
     <style>
-  	.header{
+  	.header
+    {
       height: 150px;
       border: 1px solid;
       background-color: #66ccff;
     }
+    .rating
+    {
+      width:20px;
+      height:20px;
+    }
   	</style>
+    <link rel="stylesheet" href="/static/css/styles.css">
   </head>
   <script>
     
@@ -23,7 +30,6 @@
         | <a href="account.html" title="Account">ACCOUNT</a> | <a href="subject_library.html"
           title="Subject Library">SUBJECT LIBRARY</a> | <a href="about_us.html"
           title="About Us">ABOUT US</a> </div>
-      </div>
       <div style="text-align: center;">
         <a onclick='i = 4; j = 0; k = 0; loadVideo()'>Break-Time</a>
       </div>
@@ -49,6 +55,42 @@
         <a onclick='i = 3; j = 0; k = 0; loadVideo()'>Physics</a>
         </div>
       </div>
+    </div>
+    <div>
+    <br>
+    <div style="  column-rule-style: hidden; column-count: 1;">
+      <div style="text-align: center;"> &lt;-- <iframe src="https://www.youtube.com/embed/czjisEGe5Cw?si=ZNmgu3ODyCg9alVV"
+          title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""
+          width="560" height="315" frameborder="0"> </iframe> --&gt; </div>
+    </div>
+
+    <div style="text-align: center;"> 
+      <button ><img class="rating" src="https://cdn-icons-png.flaticon.com/128/880/880605.png"/> </button> 
+      
+      <button ><img class="rating" src="https://cdn-icons-png.flaticon.com/128/1634/1634070.png"/>  </button>
+      
+    </div>
+
+    <div style="text-align: center;">
+      <div id="full-stars-example-two">
+        <div class="rating-group">
+            <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
+            <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+            <input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio">
+            <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+            <input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio">
+            <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+            <input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio">
+            <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+            <input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio">
+            <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+            <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio">
+        </div>
+      <!-- <p class="desc" style="font-family: sans-serif; font-size:0.9rem">Full stars<br/> -->
+        <!-- Must select a star value</p> -->
+      </div>
+    </div>
 
       <script>
         const json = '{"1":1, "2":2, "3":3,  "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "11":11, "12":12, "13":13, "14":14, "15":15, "16":16, "17":17, "18":18, "19":19, "20":20, "21":21, "22":22, "23":23, "24":24, "25":25, "26":26, "27":27, "28":28, "29":29, "30":30, "31":31, "32":32, "33":33, "34":34, "35":35, "36":36, "37":37, "38":38, "39":39, "40":40}';

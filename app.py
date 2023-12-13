@@ -23,7 +23,7 @@ FlaskJSON(app)
 import tools.error_handlers
 app.register_blueprint(tools.error_handlers.blueprint)
 
-#g is flask for a global var storage 
+# #g is flask for a global var storage 
 def init_new_env():
     #To connect to DB
     if 'db' not in g:
@@ -45,7 +45,7 @@ def index():
     if g.userRole and g.userRole[1] == 'admin':
         return redirect('/static/pages/admin/home.html')
     else:
-        return redirect('/static/pages/home.html')
+        return redirect('/static/pages/contentPage.html')
 
 @app.route('/admin/categories')
 @token_required
